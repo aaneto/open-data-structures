@@ -140,7 +140,7 @@ impl<T: Sized> Array<T> {
         let old_layout = Layout::array::<T>(self.capacity).unwrap();
         self.capacity = new_capacity;
         let layout = Layout::array::<T>(new_capacity).unwrap();
-        let new_ptr = unsafe { realloc(self.ptr.as_ptr() as *mut u8, old_layout, layout.size()) as *mut T };
+        let new_ptr = realloc(self.ptr.as_ptr() as *mut u8, old_layout, layout.size()) as *mut T;
         self.ptr = NonNull::new(new_ptr).unwrap();
     }
 

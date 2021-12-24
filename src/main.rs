@@ -1,5 +1,5 @@
 pub mod array;
-pub mod array_queue;
+pub mod array_deque;
 
 fn main() {
     println!("Hello, world!");
